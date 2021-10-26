@@ -3,6 +3,7 @@ require 'class/Utilisateur.class.php';
 
 $users = [];
 $user1 = new Utilisateur('Jean', 'DUPONT');
+$user1->setMail('jean@dupont.me');
 $user2 = new Utilisateur('Jeanne', 'DUPONT');
 
 $users[] = $user1;
