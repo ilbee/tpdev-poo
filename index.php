@@ -19,7 +19,7 @@ $users[] = $user2;
     <?php
     foreach ( $users as $user ) {
         ?>
-        <li><?php echo $user->getName(); ?></li>
+        <li><?php echo $user->getName(); ?> - <?php echo $user->getMail(); ?></li>
         <?php
     }
     ?>
