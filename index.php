@@ -1,7 +1,12 @@
 <?php
 require 'class/Utilisateur.class.php';
 
+$users = [];
 $user1 = new Utilisateur('Jean', 'DUPONT');
+$user2 = new Utilisateur('Jeanne', 'DUPONT');
+
+$users[] = $user1;
+$users[] = $user2;
 ?>
 <html>
 <head>
@@ -10,9 +15,13 @@ $user1 = new Utilisateur('Jean', 'DUPONT');
 <body>
 
 <ul>
-    <li>Utilisateur </li>
-    <li>Utilisateur </li>
-    <li>Utilisateur </li>
+    <?php
+    foreach ( $users as $user ) {
+        ?>
+        <li><?php echo $user->getName(); ?></li>
+        <?php
+    }
+    ?>
 </ul>
 
 </body>
