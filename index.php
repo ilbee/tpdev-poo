@@ -1,17 +1,21 @@
 <?php
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=poo', 'root');
+
+$sql = 'SELECT * FROM utilisateur';
+$req = $pdo->query($sql);
+$res = $req->fetchAll(PDO::FETCH_ASSOC);
 require 'class/Utilisateur.class.php';
 
 $users = [];
-$user1 = new Utilisateur('Jean', 'DUPONT');
-$user1->setMail('jean@dupont.me');
-$user2 = new Utilisateur('Jeanne', 'DUPONT');
-
-$users[] = $user1;
-$users[] = $user2;
+//$csv = file('users.csv');
+foreach ( $res as $data ) {
+    $user = new Utilisateur($data['id'], $data['prenom'], $data['nom'], $data['mail']);
+    $users[] = $user;
+}
 ?>
 <html>
 <head>
-    <title>Titre</title>
+    <title>Liste</title>
 </head>
 <body>
 
@@ -19,7 +23,11 @@ $users[] = $user2;
     <?php
     foreach ( $users as $user ) {
         ?>
-        <li><?php echo $user->getName(); ?> - <?php echo $user->getMail(); ?></li>
+        <li>
+            <a href="profil.php?id=<?php echo $user->getId(); ?>">Profil</a>
+            |
+            <?php echo $user->getName(); ?> - <?php echo $user->getMail(); ?>
+        </li>
         <?php
     }
     ?>
