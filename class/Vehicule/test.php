@@ -1,9 +1,9 @@
 <?php
-require_once './Vehicule.php';
-require_once './Voiture.php';
-require_once './Tesla.php';
-require_once './Moteur.php';
-require_once './Moto.php';
+require_once realpath('./Vehicule.php');
+require_once  realpath('./Voiture.php');
+require_once  realpath('./Tesla.php');
+require_once  realpath('./Moteur.php');
+require_once  realpath('./Moto.php');
 
 
 $moteur = new Moteur('thermique');
