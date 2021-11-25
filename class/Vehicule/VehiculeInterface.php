@@ -1,6 +1,8 @@
 <?php
 
-class VehiculeInterface
+interface VehiculeInterface
 {
+    public function getNbRoues(): int;
+    public function getColor(): string;
 
 }

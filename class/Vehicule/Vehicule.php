@@ -1,6 +1,6 @@
 <?php
 
-class Vehicule
+class Vehicule implements VehiculeInterface
 {
     private $nbRoues;
     private $typeMoteur;
@@ -43,5 +43,10 @@ class Vehicule
     public function getTypeMoteur(): Moteur
     {
         return $this->typeMoteur;
+    }
+
+    public function getColor(): string
+    {
+        return $this->color;
     }
 }
